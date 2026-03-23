@@ -4115,17 +4115,12 @@ function rfpShowOutput(){
 }
 
 // !! PASTE YOUR ANTHROPIC API KEY BELOW (between the quotes) !!
-var ANTHROPIC_API_KEY = atob('c2stYW50LWFwaTAzLVV0VjZQRnpFZ1BaaHBsQTJOa1ZPcUhPcUNYN2RkdUdjYUI5Tm9fRnNNeWk4SVFFU0Y5TTNKMXhrXzhVRHBOTjc0cU5FTUpEd2dBaWFkQ2Rra2tsbW9BLUZpS01kd0FB');
+var ANTHROPIC_API_KEY = '';
 
 function rfpFetch(body){
-  return fetch('https://api.anthropic.com/v1/messages', {
+  return fetch('https://seller-sidekick-proxy.gvassallo8.workers.dev', {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'x-api-key': ANTHROPIC_API_KEY,
-      'anthropic-version': '2023-06-01',
-      'anthropic-dangerous-direct-browser-access': 'true'
-    },
+    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(body)
   });
 }
