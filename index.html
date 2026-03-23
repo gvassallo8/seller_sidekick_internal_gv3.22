@@ -3180,28 +3180,11 @@ function renderIntelResults(query, data) {
         </div>
       </div>
 
-      <!-- PRIMARY: Excel / CSV upload -->
-      <div class="rfp-field rfp-excel-field" id="rfp-excel-field">
-        <div class="rfp-section-label" style="opacity:1;color:var(--navy)">
-          📎 Upload an Excel / CSV file
-        </div>
-        <div class="rfp-drop rfp-drop-compact" id="rfp-drop-zone"
-          onclick="document.getElementById('rfp-file-input').click()"
-          ondragover="event.preventDefault();this.classList.add('drag')"
-          ondragleave="this.classList.remove('drag')"
-          ondrop="rfpHandleDrop(event)">
-          <div class="rfp-drop-icon" id="rfp-drop-icon" style="font-size:20px">📂</div>
-          <div class="rfp-drop-label" id="rfp-drop-label">Drop .xlsx or .csv here, or click to browse</div>
-          <div class="rfp-drop-sub" id="rfp-drop-sub">Works best when combined with a screenshot above</div>
-        </div>
-        <input type="file" id="rfp-file-input" accept=".csv,.xlsx,.xls" style="display:none" onchange="rfpHandleFile(this.files[0])">
-      </div>
-
-      <!-- SECONDARY: Screenshot / AI Vision (Beta) -->
+      <!-- PRIMARY: Screenshot / AI Vision -->
       <div class="rfp-field" id="rfp-img-field" style="margin-bottom:12px">
         <div class="rfp-section-label" style="opacity:1;color:var(--navy)">
           📸 Plan Screenshot
-          <span class="rfp-img-badge">Beta</span>
+          <span class="rfp-badge-rec">✨ Recommended</span>
         </div>
         <div class="rfp-img-zone rfp-img-zone-primary" id="rfp-img-zone"
           tabindex="0"
@@ -3217,6 +3200,23 @@ function renderIntelResults(query, data) {
           </div>
         </div>
         <input type="file" id="rfp-img-input" accept="image/*" style="display:none" onchange="rfpHandleImgFile(this.files[0])">
+      </div>
+
+      <!-- SECONDARY: Excel / CSV upload -->
+      <div class="rfp-field rfp-excel-field" id="rfp-excel-field">
+        <div class="rfp-section-label">
+          📎 Or upload an Excel / CSV file
+        </div>
+        <div class="rfp-drop rfp-drop-compact" id="rfp-drop-zone"
+          onclick="document.getElementById('rfp-file-input').click()"
+          ondragover="event.preventDefault();this.classList.add('drag')"
+          ondragleave="this.classList.remove('drag')"
+          ondrop="rfpHandleDrop(event)">
+          <div class="rfp-drop-icon" id="rfp-drop-icon" style="font-size:20px">📂</div>
+          <div class="rfp-drop-label" id="rfp-drop-label">Drop .xlsx or .csv here, or click to browse</div>
+          <div class="rfp-drop-sub" id="rfp-drop-sub">Works best when combined with a screenshot above</div>
+        </div>
+        <input type="file" id="rfp-file-input" accept=".csv,.xlsx,.xls" style="display:none" onchange="rfpHandleFile(this.files[0])">
       </div>
 
       <!-- Output -->
@@ -4115,7 +4115,7 @@ function rfpShowOutput(){
 }
 
 // !! PASTE YOUR ANTHROPIC API KEY BELOW (between the quotes) !!
-var ANTHROPIC_API_KEY = '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';
+var ANTHROPIC_API_KEY = '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';
 
 function rfpFetch(body){
   return fetch('https://api.anthropic.com/v1/messages', {
